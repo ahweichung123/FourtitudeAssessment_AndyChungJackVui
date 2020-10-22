@@ -11,7 +11,7 @@ public class Task2_Advanced {
         int arr [] = new int[10], temp, max=0, count=0;
         
         //For loop to check each number's check digit
-        for(int j = 1; j<=1000000; j++){
+        for(int j =1; j<=1000000; j++){
             temp = basic.Basic_ChkDigit(2, j);
             arr[temp] +=1; //Tally respective number if check digit matched
         }

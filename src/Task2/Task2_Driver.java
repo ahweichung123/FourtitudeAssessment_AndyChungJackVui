@@ -7,24 +7,20 @@ import java.util.Scanner;
  * @author andyc
  */
 public class Task2_Driver {
-
-    //Global Variables
-    private static int selection = 0;
-    final static Task2_Basic basic = new Task2_Basic();
-    final static Task2_Advanced adv = new Task2_Advanced();
-    private static int chkDigit;
-   
     //Main Method
     public static void main(String[] args){
+        Task2_Advanced adv = new Task2_Advanced();
+        Task2_Basic basic = new Task2_Basic();
         
         //Get user input
         switch (chkOption()){
-            case 1 -> Access_Basic(1);        
+            case 1 -> basic.Access_Basic(1);
             case 2 -> adv.Verify_ChkDigit();
         }
     }
     
     public static int chkOption(){
+        int selection = 0;
         Scanner scanner = new Scanner(System.in);
         
         try{
@@ -49,13 +45,5 @@ public class Task2_Driver {
         }
         
         return selection;
-    }
-    
-    public static void Access_Basic(int option){
-        //Accessing Task1_Basic
-        do{
-            chkDigit = basic.Basic_ChkDigit(1, -1);
-        }while(chkDigit==-1);
-        System.out.println("The check digit is " + chkDigit);
     }
 }

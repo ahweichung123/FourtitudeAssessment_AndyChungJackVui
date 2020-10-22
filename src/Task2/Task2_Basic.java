@@ -9,10 +9,10 @@ import java.util.Scanner;
 public class Task2_Basic {
     
     //Global Variables
-    private static long input;
-    private static int sum = 0, digit;
+    public long input;
 
     public int Basic_ChkDigit(int option, int adv){
+        int sum = 0;
         //Local Variables
         Scanner scanner = new Scanner (System.in);
         
@@ -31,8 +31,8 @@ public class Task2_Basic {
         }
         else{
             //Access ChkDigit method with predefined values (for option '2')
-            ChkDigit(Integer.toString(adv));
-            return sum;
+            return sum = ChkDigit(Integer.toString(adv));
+            //return sum;
         }
 
         //Returning result back to driver class (for option '1')
@@ -40,11 +40,12 @@ public class Task2_Basic {
         return sum;
     }
     
-    public static String ChkDigit(String temp){
+    public int ChkDigit(String temp){
+        int sum = 0;
         //Sum of each digit (Starting from most left)
         for(int i=0; i<temp.length(); i++){
-            digit = (int) temp.charAt(i);
-            sum+= Character.getNumericValue(digit);
+            char digit = temp.charAt(i);
+            sum+= Integer.parseInt(String.valueOf(digit));
             if(sum%2==0){
                 sum = sum/2;
             }
@@ -52,6 +53,17 @@ public class Task2_Basic {
                 sum = (sum - 1)/2;
             }
         }
-        return Integer.toString(sum);
+        return sum;
+    }
+    
+    public void Access_Basic(int option){
+        int chkDigit;
+        Task2_Basic basic = new Task2_Basic();
+        
+        //Accessing Task1_Basic
+        do{
+            chkDigit = basic.Basic_ChkDigit(1, -1);
+        }while(chkDigit==-1);
+        System.out.println("The check digit is " + chkDigit);
     }
 }
